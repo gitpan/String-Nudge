@@ -1,0 +1,28 @@
+---
+abstract: 'Nudges all lines in a multi-line string'
+author:
+  - 'Erik Carlsson <info@code301.com>'
+build_requires:
+  Syntax::Feature::Qi: '0'
+  Syntax::Feature::Simple::V2: '0'
+  Test::NoTabs: '0'
+configure_requires:
+  Module::Build::Tiny: '0.039'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.143240'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: String-Nudge
+no_index:
+  directory:
+    - t
+    - xt
+    - inc
+    - share
+    - eg
+    - examples
+requires:
+  perl: '5.010000'
+version: '0.0100'

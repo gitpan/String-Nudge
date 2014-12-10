@@ -1,0 +1,95 @@
+NAME
+    String::Nudge - Nudges all lines in a multi-line string
+
+SYNOPSIS
+        use String::Nudge;
+
+        sub out {
+            print nudge q{
+                A long
+                text.
+            };
+        }
+
+        # is exactly the same as
+        sub out {
+            print q{
+                    A long
+                    text.
+        };
+        }
+
+DESCRIPTION
+    String::Nudge provides "nudge", a simple function that indents all lines
+    in a multi line string.
+
+  METHODS
+   nudge $string
+        # '    hello'
+        my $string = nudge 'hello';
+
+   nudge $number_of_spaces, $string
+        # '        hello'
+        my $string = nudge 8, 'hello';
+
+    If $number_of_spaces is not given (or isn't an integer >= 0) its default
+    value is 4.
+
+    Every line in $string is indented by $number_of_spaces. Lines only
+    consisting of white space is trimmed (but not removed).
+
+    "nudge" works nicely together with qi:
+
+        # these three packages are equivalent:
+        package Example::Nudge {
+
+            use String::Nudge;
+            use syntax 'qi';
+
+            sub out {
+                print nudge qi{
+                    sub funcname {
+                        print 'stuff';
+                    }
+                };
+            }
+        }
+        package Example::Q {
+
+            sub out {
+                print q{
+            sub funcname {
+                print 'stuff';
+            }
+        };
+            }
+        }
+        package Example::HereDoc {
+
+            sub out {
+
+                (my $text = <<"        END") =~ s{^ {8}}{}gm;
+                    sub funcname {
+                        print 'stuff';
+                    }
+                END
+
+                print $text;
+            }
+        }
+
+SEE ALSO
+    Indent::String
+    String::Indent
+    qi
+
+AUTHOR
+    Erik Carlsson <info@code301.com>
+
+COPYRIGHT
+    Copyright 2014 - Erik Carlsson
+
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
