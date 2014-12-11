@@ -1,5 +1,5 @@
 package String::Nudge;
-$String::Nudge::VERSION = '0.0100';
+$String::Nudge::VERSION = '0.0101';
 use strict;
 use warnings;
 use 5.010000;

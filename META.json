@@ -38,6 +38,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Sub::Exporter::Progressive" : "0",
             "perl" : "5.010000"
          }
       },
@@ -50,6 +51,6 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.0100"
+   "version" : "0.0101"
 }
 
